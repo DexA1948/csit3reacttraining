@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>MEME DISCO</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .large-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4c8bf5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .large-button:hover {
+            background-color: #3461b7;
+            cursor: pointer;
+        }
+
+        .flickering-animation {
+            animation: flickeringLight 10s infinite;
+        }
+
+        @keyframes flickeringLight {
+            0% {
+                background-color: #911a1a;
+            }
+            10% {
+                background-color: #218156;
+            }
+            20% {
+                background-color: #852851;
+            }
+            30% {
+                background-color: rgba(92, 17, 17, 0.2);
+            }
+            40% {
+                background-color: rgba(21, 154, 9, 0.2);
+            }
+            50% {
+                background-color: rgba(9, 91, 126, 0.2);
+            }
+            60% {
+                background-color: rgba(28, 198, 65, 0.2);
+            }
+            70% {
+                background-color: rgba(183, 227, 21, 0.2);
+            }
+            80% {
+                background-color: rgba(236, 21, 21, 0.2);
+            }
+            90% {
+                background-color: rgba(8, 182, 95, 0.2);
+            }
+            100% {
+                background-color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="name">MEME DISCO</h1>
+    <div class="button-container">
+        <button class="large-button" data-color="red" data-src="1.mp3">First</button>
+        <button class="large-button" data-color="blue" data-src="2.mp3">Second</button>
+        <button class="large-button" data-color="green" data-src="3.mp3">Third</button>
+    </div>
+
+    <audio src="1.mp3" controls style="display:none"></audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const body = document.querySelector("body");
+            const buttons = document.querySelectorAll(".large-button");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", (e) => {
+                    body.style.background = e.target.dataset.color;
+                    body.classList.add("flickering-animation");
+
+                    let audio = document.querySelector("audio");
+                    audio.src = e.target.dataset.src;
+                    audio.play();
+
+                    setTimeout(() => {
+                        body.classList.remove("flickering-animation");
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

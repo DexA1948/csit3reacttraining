@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Event Object</title>
+        <script>
+            //this won't work because event cannot be passed
+            //using onclick attribute in html tag
+            //use addEventListener and callback function for felxibility
+            //or use var event = window.event || arguments[0];
+            function handleClick(e){
+                alert(e.target.innerHTML);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Callback Function</h1>
+        <div>
+            <input type="text" id="name" placeholder="Enter Your Name">
+            <button data-color="red" onclick="handleClick(e)">Click</button>
+        </div>
+    </body>
+</html>

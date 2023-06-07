@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>Callback Function</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="sum(10, 20, myCallback)">Click Me</button>
+    </div>
+
+    <script>
+        function myCallback(sum){
+            alert(sum);
+        }
+
+        function sum(a, b, callback){
+            callback(a+b);
+        }
+
+        sum(10, 20, myCallback);
+    </script>
+</body>
+</html>

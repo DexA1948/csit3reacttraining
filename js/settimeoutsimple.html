@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Set Timeout Function</title>
+</head>
+
+<body>
+
+    <h1>This will change in 3 seconds after click</h1>
+    <button onclick="handleClick()">Click</button>
+
+    <script>
+        function changeh1(){
+            document.querySelector('h1').innerHTML = 'Changed';
+        }
+        function handleClick() {
+            setTimeout(changeh1, 3000);
+
+            //use this syntax to use anynomous function
+            // setTimeout(() => {
+                
+            // }, 3000);
+        }
+    </script>
+</body>
+
+</html>

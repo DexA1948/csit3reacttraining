@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Set Timeout Function</title>
+    </head>
+
+    <body>
+        <!-- Here we are using a anynomous/array function with settimeout -->
+        <!-- function() is another way to use anynomous function-->
+        <h1>This will change in 3 seconds after click</h1>
+        <button onclick="setTimeout(() => {
+            document.querySelector('h1').innerHTML = 'Changed';
+        }, 3000);">Click</button>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Change BackGround Color</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            function handleClick(e) {
+                document.querySelector("body").style.background = e.target.dataset.color;
+                
+                //this change is permanent what should we do?
+                e.target.style.background = "lime";
+            }
+
+            document.querySelectorAll(".changecolor").forEach((button) => {
+                button.addEventListener("mouseover", handleClick);
+            });
+
+        });
+    </script>
+    <script>
+        function greet() {
+            alert("hello");
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="name">Class Tilicho</h1>
+    <div id="buttonlist">
+        <button class="changecolor" data-color="red">Red</button>
+        <button class="changecolor" data-color="blue">Blue</button>
+        <button class="changecolor" data-color="green">Green</button>
+    </div>
+</body>
+
+</html>
