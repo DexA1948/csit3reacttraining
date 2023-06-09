@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Fetch API</title>
+</head>
+
+<body>
+    <h1>We are using fetch</h1>
+    <div id="demo">Post Here</div>
+</body>
+
+<script>
+    fetch('https://reqres.in/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: 'User 1'
+        })
+    })
+        .then(res => {
+            if (res.ok) {
+                console.log("SUCESSS")
+                return res.json()
+            } else {
+                //or throw error
+                console.log("Not Successful")
+            }
+        })
+        .then(data => {
+            document.querySelector("#demo").innerHTML = data;
+        });
+</script>
+
+</html>
